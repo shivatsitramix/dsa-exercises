@@ -82,3 +82,36 @@ In linked lists, this pattern isn't about read/write but about **relative speed*
 * `fast` moves 2 steps at a time.
 
 If there is no cycle, `fast` will hit `null` first. If there *is* a cycle, `fast` will enter it, followed by `slow`. Once both are in the cycle, think of it as a circular track. The `fast` runner gains on the `slow` runner by one position at every time step. Since the track has a finite length, the `fast` runner is mathematically guaranteed to eventually lap and land on the same node as the `slow` runner. The collision of pointers is irrefutable proof of a cycle.
+
+
+### 1. Converging Pointers Method
+
+**Problem: Squares of a Sorted Array** 🟩
+
+Given an integer array `nums` sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
+
+The most straightforward way involves squaring each element and then sorting the new array, which would be $O(n \log n)$. Can you do it in $O(n)$ time using two pointers?
+
+**Example:**
+* **Input:** `nums = [-4, -1, 0, 3, 10]`
+* **Output:** `[0, 1, 9, 16, 100]`
+
+**Hint:**
+Initialize a `left` pointer at the beginning and a `right` pointer at the end of the input array. Compare the absolute values at both pointers to determine which square is larger and should be placed at the end of your result array.
+
+***
+
+### 2. Fast and Slow Pointers Method
+
+**Problem: Move Zeroes** ⏩
+
+Given an integer array `nums`, write a function to move all `0`'s to the end of it while maintaining the relative order of the non-zero elements.
+
+This must be done **in-place** without making a copy of the array.
+
+**Example:**
+* **Input:** `nums = [0, 1, 0, 3, 12]`
+* **Output:** `[1, 3, 12, 0, 0]`
+
+**Hint:**
+Use a `slow` pointer to keep track of the position where the next non-zero element should be placed. Use a `fast` pointer to iterate through the array. When the `fast` pointer finds a non-zero element, swap it with the element at the `slow` pointer's position and advance both.
