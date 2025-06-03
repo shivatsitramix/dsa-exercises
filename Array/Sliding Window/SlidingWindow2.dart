@@ -1,6 +1,3 @@
-
-
-
 int lengthOfLongestSubstring(String s) {
   int start = 0;
   int maxLength = 0;
