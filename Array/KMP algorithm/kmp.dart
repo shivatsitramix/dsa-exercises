@@ -2,24 +2,24 @@ int kmpSearch(String text, String pattern) {
   if (pattern.isEmpty) return 0;
 
   List<int> lps = _buildLPS(pattern);
-  int i = 0; // index for text
-  int j = 0; // index for pattern
+  int i = 0;
+  int j = 0;
 
   while (i < text.length) {
     if (text[i] == pattern[j]) {
       i++;
       j++;
-      if (j == pattern.length) return i - j; // Match found
+      if (j == pattern.length) return i - j;
     } else {
       if (j != 0) {
-        j = lps[j - 1]; // Use the prefix info
+        j = lps[j - 1];
       } else {
         i++;
       }
     }
   }
 
-  return -1; // No match found
+  return -1;
 }
 
 List<int> _buildLPS(String pattern) {
